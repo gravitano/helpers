@@ -1,4 +1,4 @@
-helpers
+Laravel 4 - Helpers
 =======
 
-Laravel 4 - Helpers
+### Installation
