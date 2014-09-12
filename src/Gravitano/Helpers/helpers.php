@@ -216,7 +216,8 @@ if( ! function_exists('pagination_links'))
      */
     function pagination_links(Paginator $data)
     {
-        if ($query = Request::query()) {
+        if ($query = Request::query())
+        {
             $query = array_except($query, 'page');
 
             return $data->appends($query)->links();
@@ -245,10 +246,12 @@ if( ! function_exists('upload_image'))
 
         $filename = get_random_filename($file);
 
-        if (!is_null($width) && !is_null($height)) {
+        if (!is_null($width) && !is_null($height))
+        {
             $thumbnailPath = $path . '/thumbnail/';
 
-            if (!File::isDirectory($thumbnailPath)) {
+            if (!File::isDirectory($thumbnailPath))
+            {
                 File::makeDirectory($thumbnailPath);
             }
 
