@@ -11,12 +11,15 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "4.*"
+        "laravel/framework": "4.*"
     },
     "autoload": {
         "psr-0": {
             "Gravitano\\Helpers": "src/"
-        }
+        },
+        "files": [
+            "src/Gravitano/Helpers/helpers.php"
+        ]
     },
     "minimum-stability": "stable"
 }
