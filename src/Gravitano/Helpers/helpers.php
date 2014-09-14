@@ -216,7 +216,7 @@ if( ! function_exists('pagination_links'))
      */
     function pagination_links(Paginator $data)
     {
-        if ($query = Request::query())
+        if ($query = request()->query())
         {
             $query = array_except($query, 'page');
 
@@ -242,17 +242,17 @@ if( ! function_exists('upload_image'))
      */
     function upload_image($field, $path, $width = null, $height = null)
     {
-        $file = Input::file($field);
+        $file = input()->file($field);
 
         $filename = get_random_filename($file);
 
-        if (!is_null($width) && !is_null($height))
+        if ( ! is_null($width) && ! is_null($height))
         {
             $thumbnailPath = $path . '/thumbnail/';
 
-            if (!File::isDirectory($thumbnailPath))
+            if ( ! files()->isDirectory($thumbnailPath))
             {
-                File::makeDirectory($thumbnailPath);
+                files()->makeDirectory($thumbnailPath);
             }
 
             $filenPath = public_path($thumbnailPath . $filename);
@@ -279,5 +279,209 @@ if( ! function_exists('generate_slug'))
     function generate_slug(array $data)
     {
         return time() . '-' . Str::slug($data['title']);
+    }
+}
+
+/**
+ * Laravel helpers
+ */
+
+if( ! function_exists('auth'))
+{
+    function auth()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('input'))
+{
+    function input()
+    {
+        return app('request');
+    }
+}
+
+if( ! function_exists('artisan'))
+{
+    function artisan()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('redirect'))
+{
+    function redirect()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('config'))
+{
+    function config()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('request'))
+{
+    function request()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('hash'))
+{
+    function hash()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('cache'))
+{
+    function cache()
+    {
+        return app('cache.store');
+    }
+}
+
+if( ! function_exists('lang'))
+{
+    function lang()
+    {
+        return app('translator');
+    }
+}
+
+if( ! function_exists('view'))
+{
+    function view()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('validator'))
+{
+    function validator()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('route'))
+{
+    function route()
+    {
+        return app('router');
+    }
+}
+
+if( ! function_exists('mail'))
+{
+    function mail()
+    {
+        return app('mailer');
+    }
+}
+
+if( ! function_exists('session'))
+{
+    function session()
+    {
+        return app('session.store');
+    }
+}
+
+if( ! function_exists('paginator'))
+{
+    function paginator()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('log'))
+{
+    function log()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('queue'))
+{
+    function queue()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('files'))
+{
+    function files()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('html'))
+{
+    function html()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('form'))
+{
+    function form()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('db'))
+{
+    function db()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('crypt'))
+{
+    function crypt()
+    {
+        return app('encrypter');
+    }
+}
+
+if( ! function_exists('url'))
+{
+    function url()
+    {
+        return app(__FUNCTION__);
+    }
+}
+
+if( ! function_exists('event'))
+{
+    function event()
+    {
+        return app('events');
+    }
+}
+
+if( ! function_exists('cookie'))
+{
+    function cookie()
+    {
+        return app(__FUNCTION__);
     }
 }
